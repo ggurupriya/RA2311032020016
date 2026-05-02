@@ -83,3 +83,30 @@ The API returns:
 - Top 10 notifications
 - Sorted by priority
 - Includes weight and priority rank for clarity
+
+---
+
+# Stage 2 - Notification UI (Frontend)
+
+In this stage, I built a responsive React/Vite application to display the notifications to the user, strictly adhering to modern UI/UX principles and Material UI styling.
+
+## Key Features
+
+### 1. Two-Page Architecture
+- **All Notifications Page (`/`)**: Displays all general notifications with a paginated view. 
+- **Priority Notifications Page (`/priority`)**: A dedicated interface to view the most critical notifications.
+
+### 2. Priority & Filtering Controls
+The Priority page leverages the expanded backend API query parameters:
+- **`limit`**: A customizable Top "N" filter allowing users to select how many priority notifications they wish to see.
+- **`notification_type`**: A dropdown filter to isolate notifications strictly by type (`Event`, `Result`, or `Placement`).
+
+### 3. Visual Distinction & State
+- **Viewed vs. New**: The UI visually distinguishes between new and already-viewed notifications. New notifications feature a solid colored border, opaque styling, and bold typography. Viewed notifications have an outlined badge, disabled checkmark, and lower opacity.
+- **Dynamic Theming**: Dynamic color coding based on Notification Type using Material UI theme tokens (`Primary` for Events, `Success` for Results, `Warning` for Placements).
+
+### 4. Technical Constraints Met
+- Developed exclusively in React using Vite.
+- Styled completely using `@mui/material` and `@emotion/react`.
+- Application strictly configured to run on `http://localhost:3000`.
+- Robust error handling with graceful fallbacks if the API is unreachable, ensuring the UI always remains completely functional and testable.
